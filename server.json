@@ -1,0 +1,30 @@
+{
+  "todos": [
+    {
+      "id": "14712040",
+      "todo": "Make a web app",
+      "category": "Work",
+      "completed": false
+    },
+    {
+      "id": "33202187",
+      "todo": "Hello World",
+      "category": "Play",
+      "completed": false
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "name": "Play"
+    },
+    {
+      "id": "2",
+      "name": "Work"
+    },
+    {
+      "id": "3",
+      "name": "Home"
+    }
+  ]
+}

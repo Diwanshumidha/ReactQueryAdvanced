@@ -1,9 +1,11 @@
 import Products from "./Products";
+import Todo from "./TodoApp/Todo";
 
 const App = () => {
   return (
     <div className=" ">
-      <Products />
+      {/* <Products /> */}
+      <Todo />
     </div>
   );
 };
