@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Todo, updateTodos } from "../lib/api";
+import { Todo, updateTodos } from "../../lib/api";
+import { Checkbox } from "../ui/checkbox";
 
 const TodoCompleteBtn = ({ todo }: { todo: Todo }) => {
   const queryClient = useQueryClient();
@@ -12,17 +13,10 @@ const TodoCompleteBtn = ({ todo }: { todo: Todo }) => {
   });
 
   return (
-    <>
-      {todo.completed ? (
-        <button onClick={() => ToggleCompleted()} className=" text-green-500">
-          Mark as Pending
-        </button>
-      ) : (
-        <button onClick={() => ToggleCompleted()} className="text-red-600">
-          Mark as Completed
-        </button>
-      )}
-    </>
+    <Checkbox
+      checked={todo.completed}
+      onCheckedChange={() => ToggleCompleted()}
+    />
   );
 };
 

@@ -1,10 +1,8 @@
-import Products from "./Products";
-import Todo from "./TodoApp/Todo";
+import Todo from "./components/TodoApp/Todo";
 
 const App = () => {
   return (
-    <div className=" ">
-      {/* <Products /> */}
+    <div className="bg-[#f6f9fb]">
       <Todo />
     </div>
   );

@@ -145,3 +145,12 @@ export const updateTodos = async (id: number, setIsCompletedTo: boolean) => {
   const response = await fetch(url, requestOptions).then((res) => res.json());
   return response;
 };
+
+export const DeleteTodo = async (id: number) => {
+  const url = `http://localhost:3000/todos/${id}`;
+
+  const response = await fetch(url, { method: "DELETE" }).then((res) =>
+    res.json()
+  );
+  return response;
+};
