@@ -15,7 +15,7 @@ export function ErrorComponent({
     <>
       {isError ? (
         <div
-          className=" bg-red-600 w-full text-white py-2 px-3 cursor-pointer "
+          className=" bg-red-600 w-full  text-white py-2 px-3 cursor-pointer "
           onClick={() => setisErrorExpanded((prev) => !prev)}
         >
           <div className="flex justify-between">

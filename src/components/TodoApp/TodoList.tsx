@@ -4,6 +4,9 @@ import TodoCompleteBtn from "./TodoCompleteBtn";
 import TodoDeleteBtn from "./TodoDeleteBtn";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Badge } from "../ui/badge";
+import { Skeleton } from "../ui/skeleton";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const TodoList = () => {
   const {
@@ -16,17 +19,34 @@ const TodoList = () => {
     queryFn: GetTodos,
   });
 
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
+  useEffect(() => {
+    if (isError) {
+      toast.error(`Something went wrong: While Loading the data`);
+    }
+  }, [isError]);
 
   if (isError) {
     return (
-      <ErrorComponent
-        error={error}
-        errorMessageUser="Error Loading Lists"
-        isError={isError}
-      />
+      <div className=" py-5 w-full space-y-3">
+        {[...Array(5)]?.map(() => {
+          return <TodoSkeleton />;
+        })}
+        <ErrorComponent
+          error={error}
+          errorMessageUser="Error Loading Lists"
+          isError={isError}
+        />
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className=" py-5 w-full space-y-3">
+        {[...Array(5)]?.map(() => {
+          return <TodoSkeleton />;
+        })}
+      </div>
     );
   }
 
@@ -56,5 +76,10 @@ function Todo({ todo }: { todo: Todo }) {
       </div>
       <TodoCompleteBtn todo={todo} />
     </div>
+  );
+}
+function TodoSkeleton() {
+  return (
+    <Skeleton className=" py-3 bg-gray-400 px-6 rounded-2xl  flex w-full justify-between gap-4 items-center h-[70px]  " />
   );
 }

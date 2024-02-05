@@ -4,7 +4,7 @@ import { Trash } from "lucide-react";
 
 const TodoDeleteBtn = ({ todoId }: { todoId: number }) => {
   const queryClient = useQueryClient();
-  const { mutate: DeleteThisTodo, isPending } = useMutation({
+  const { mutate: DeleteThisTodo } = useMutation({
     mutationKey: ["todoDelete", todoId],
     mutationFn: () => DeleteTodo(todoId),
     onSettled: () => {
